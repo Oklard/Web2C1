@@ -1,15 +1,12 @@
-import {Request, Response} from "express";
-
-import { inserirAluno } from "../services/AlunosServices/inserirAluno";
+import { Request, Response } from "express";
 import deletarAluno from "../services/AlunosServices/deletarAluno";
-import { listarAlunos } from "../services/AlunosServices/listarAlunos";
-import { promises } from "dns";
-
+import inserirAluno from "../services/AlunosServices/inserirAluno";
+import listarAlunos from "../services/AlunosServices/listarAlunos";
 
 class AlunosController {
   constructor() {}
 
-  async getAlunos(req: Request, res: Response) {
+  async getAlunos(req: Request, res: Response): Promise<void> {
     const alunos = await listarAlunos();
     console.log(alunos);
     res.end(JSON.stringify(alunos));
@@ -22,7 +19,7 @@ class AlunosController {
     res.end(JSON.stringify(aluno));
   }
 
-  async excluirAluno(req: Request, res: Response) {
+  async excluirAluno(req: Request, res: Response): Promise<void> {
     const aluno = req.body;
     const alunoExcluido = await deletarAluno(aluno);
     res.end(alunoExcluido);
