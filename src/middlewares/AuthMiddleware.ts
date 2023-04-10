@@ -1,7 +1,10 @@
 const isAutheticated = true;
 const isManager = false;
 
-function AuthMiddleware(req, res, next) {
+import {Request, Response, NextFunction} from "express";
+
+
+export function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
   if (isAutheticated) {
     next();
   } else {
@@ -9,12 +12,10 @@ function AuthMiddleware(req, res, next) {
   }
 }
 
-function ManagerMiddleware(req, res, next) {
+export function ManagerMiddleware(req: Request, res: Response, next:NextFunction) {
   if (isManager) {
     next();
   } else {
     res.status(405).json({ message: "Not Allowed" });
   }
 }
-
-module.exports = { AuthMiddleware, ManagerMiddleware };

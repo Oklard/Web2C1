@@ -1,8 +1,7 @@
-const execQuery = require("../execQuery");
-
-async function inserirAluno(aluno) {
+import { execQuery } from "../execQuery";
+export function inserirAluno(aluno: any) {
   try {
-    const resultado = await execQuery(
+    const resultado =  execQuery(
       `INSERT into alunos VALUES ('${aluno.nome}')`
     );
   } catch (erro) {

@@ -1,11 +1,12 @@
-const { Router } = require("express");
-const AlunosController = require("../controllers/AlunosController");
-const {
+import { Router } from "express";
+
+export const AlunosController = require("../controllers/AlunosController");
+export const {
   AuthMiddleware,
   ManagerMiddleware,
 } = require("../middlewares/AuthMiddleware");
 
-const roteador = Router();
+export const roteador = Router();
 
 roteador.get(
   "/alunos",
@@ -18,4 +19,4 @@ roteador.post("/aluno", AlunosController.inserirAluno);
 
 roteador.delete("/aluno", AlunosController.excluirAluno);
 
-module.exports = roteador;
+

@@ -1,4 +1,4 @@
-const { open } = require("sqlite");
+import { open, Database } from 'sqlite'
 const sqlite3 = require("sqlite3");
 
 async function openDB() {
@@ -8,4 +8,4 @@ async function openDB() {
   });
 }
 
-module.exports = openDB;
+export default openDB;
