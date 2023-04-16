@@ -10,4 +10,4 @@ roteador.get("/", async function (req, res) {
 roteador.get("*", async function (req, res) {
   res.sendFile(`${BuildPath(__dirname)}/views/404.html`);
 });
-
+export default Router;

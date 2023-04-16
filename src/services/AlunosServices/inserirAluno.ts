@@ -1,7 +1,8 @@
-import { execQuery } from "../execQuery";
-export function inserirAluno(aluno: any) {
+import {execQuery} from "../execQuery";
+
+async function inserirAluno(aluno: { nome: string }): Promise<void> {
   try {
-    const resultado =  execQuery(
+    const resultado = await execQuery(
       `INSERT into alunos VALUES ('${aluno.nome}')`
     );
   } catch (erro) {
@@ -9,4 +10,4 @@ export function inserirAluno(aluno: any) {
   }
 }
 
-module.exports = inserirAluno;
+export default inserirAluno;

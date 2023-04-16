@@ -12,7 +12,7 @@ async function execQuery(query: string): Promise<void> {
   }
 }
 
-async function getAll<T>(query: string): Promise<T[]> {
+async function getAll<T>(query: string): Promise<any> {
   try {
     const db: Database = await openDB();
     const result: T[] = await db.all(query);

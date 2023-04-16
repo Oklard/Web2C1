@@ -1,4 +1,4 @@
-function BuildPath(pathDirName) {
+function BuildPath(pathDirName: string): string {
   const paths = pathDirName.split("\\");
   let path = "";
   for (let i = 0; i < paths.length - 1; i++) {
@@ -7,4 +7,4 @@ function BuildPath(pathDirName) {
   return path;
 }
 
-module.exports = BuildPath;
+export default BuildPath;

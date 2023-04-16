@@ -1,8 +1,8 @@
 import { execQuery } from "../execQuery";
-export default function deletarAluno(aluno: any) {
+
+async function deletarAluno(aluno: { nome: string }): Promise<void> {
   try {
-    const 
-    resultado = execQuery(
+    const resultado = await execQuery(
       `DELETE FROM alunos WHERE alunos.nome = '${aluno.nome}'`
     );
   } catch (erro) {
@@ -10,3 +10,4 @@ export default function deletarAluno(aluno: any) {
   }
 }
 
+export default deletarAluno;

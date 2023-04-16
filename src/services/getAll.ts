@@ -1,13 +1,13 @@
 import openDB from "../database/sqlite";
 import { Database } from "sqlite";
 
-async function getAll(): Promise<{ nome: string }> {
+async function getAll(): Promise<{ nome: string | any}> {
   try {
     const db: Database = await openDB();
-    const result: { nome: string } = await db.get("SELECT nome FROM alunos");
+    const result: { nome: string }| any= await db.get("SELECT nome FROM alunos");
     return result;
   } catch (error) {
-    console.log(error);
+    throw(error);
   }
 }
 

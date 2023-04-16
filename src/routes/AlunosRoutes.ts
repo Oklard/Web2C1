@@ -18,5 +18,5 @@ roteador.get(
 roteador.post("/aluno", AlunosController.inserirAluno);
 
 roteador.delete("/aluno", AlunosController.excluirAluno);
-
+export default roteador;
 

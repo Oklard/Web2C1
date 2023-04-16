@@ -1,11 +1,12 @@
 import { getAll } from "../execQuery";
-export function listarAlunos() {
+
+async function listarAlunos(): Promise<any> {
   try {
-    const result =  getAll("SELECT nome FROM alunos");
+    const result: { nome: string }[] = await getAll("SELECT nome FROM alunos");
     return result;
   } catch (error) {
     console.log(error);
   }
 }
 
-module.exports = listarAlunos;
+export default listarAlunos;
